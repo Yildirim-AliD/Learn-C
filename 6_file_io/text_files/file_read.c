@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    FILE *file = fopen("example.txt", "r");
+    if (file == NULL) {
+        perror("Error opening file");
+        return 1;
+    }
+
+    char line[256];
+    printf("File content:\n");
+    while (fgets(line, sizeof(line), file)) {
+        printf("%s", line);
+    }
+
+    fclose(file);
+    return 0;
+}
